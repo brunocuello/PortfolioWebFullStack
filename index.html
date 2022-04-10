@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Web</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+       <div class="banner">
+        <div class="banner-background">
+            <img class="banner-background" src="C:\Users\bruno\OneDrive\Escritorio\Bruno\Imagenes PW\ImagenBanner.jpeg" alt="Banner"></img>
+        </div>
+        <div id="banner-info">
+            <div id="img-info"> 
+                <img class="imagen-personal" src="C:\Users\bruno\OneDrive\Escritorio\Bruno\CV\Foto Bruno.png" alt="Imagen personal"></img>
+                <div class="btn-edit">
+                    <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+                </div>
+            </div>
+            <div id="info">
+                <h2>Bruno Gastón Cuello Naranjo</h2>
+                <p>Full Stack Developer Jr.</p>
+                <p>Mendoza (Argentina)</p>
+            </div>
+        </div>
+       </div>
+       <div class="acerca-de">
+           <div class="top">
+                <h2>Acerca de</h2>
+                <div class="btn-edit" onclick="cambiar_parrafo()">
+                    <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+                </div>
+            </div>
+            <p id="text-acercade">...</p>
+            <div>
+                <input id="edit-acercade" type="text" oninput="nuevo_acercade(this.value)" style="display: none">
+            </div>
+       </div>
+       <input type="file" id="file1" onchange="showFile(this)">
+       <div class="trayectoria">
+        <div class="exp">
+            <div class="top">
+                <h2>Experiencia</h2>
+                <div class="btn-edit" onclick="">
+                    <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="edu">
+            <div class="top">
+                <h2>Educación</h2>
+                <div class="btn-edit" onclick="">
+                    <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+            <div class="sección-edu">
+                <div class="img-edu">
+                <img class="imagen-educación" src="C:\Users\bruno\OneDrive\Escritorio\Bruno\Escudo Murialdo\EscudoMurialdo.jpg" alt="Escudo Murialdo"></img>
+                </div>
+                <div>
+                    <h3 class="instituto">Instituto Leonardo Murialdo</h2>
+                    <p>Ciencias Naturales en Salud y Ambiente</p>
+                    <p>2004-2016</p>
+                </div>
+            </div>
+        </div>
+       </div>
+       <div class="skills">
+        <div class="top">
+            <h2>Hard & Soft Skills</h2>
+            <div class="btn-edit" onclick="">
+                <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+       </div>
+       <div class="proyects">
+        <div class="top">
+            <h2>Proyectos</h2>
+            <div class="btn-edit" onclick="">
+                <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+        <div>
+            <h3><a href="C:\Users\bruno\OneDrive\Escritorio\Bruno\Argentina Programa\#YoProgramo\PortfolioWebFullStack\Front-End\index.html">Portfolio Web</a></h3>
+        </div>
+       </div>
+       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+       <script>
+        function cambiar_parrafo(){
+            document.getElementById("edit-acercade").style.display="block";
+            let texto = document.getElementById("text-acercade").innerText;
+            console.log(texto);
+        };
+        function nuevo_acercade(valor){
+            document.getElementById("text-acercade").innerText=valor;
+        };
+        function logMessage(message){
+            console.log(message+"<br>");
+        };
+        let textarea=document.getElementById("edit-acercade")
+        textarea.addEventListener('keyup', (e) => {
+            logMessage(`Key "${e.key}" released [event : keyup]`);
+            if(e.key=="Enter"){ 
+                document.getElementById("edit-acercade").style.display="none"
+            }
+        });
+
+        function showFile(input){
+            let file=input.files[0];
+            alert(`File name:${file.name}`);
+            alert(`Last modified:${file.lastModified}`);
+
+            let reader=new FileReader();
+            reader.readAsText(file);
+            reader.onload=function(){
+                console.log(reader.result);
+                document.getElementById("text-acercade").innerText=reader.result;
+            };
+            reader.onerror=function(){
+                console.log(reader.error);
+            };
+        };
+    </script>
+    </body>
+</html>
