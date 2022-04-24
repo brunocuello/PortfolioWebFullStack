@@ -10,7 +10,7 @@
 
     </head>
     <body>
-       <div class="card mat-card" id="first-card">
+       <div class="banner">
         <div class="banner-background">
             <img class="banner-background" src="C:\Users\bruno\OneDrive\Escritorio\Bruno\Imagenes PW\ImagenBanner.jpeg" alt="Banner"></img>
         </div>
@@ -29,7 +29,7 @@
         </div>
        </div>
        <div class="acerca-de">
-           <div class="top">
+           <div class="sec-header">
                 <h2>Acerca de</h2>
                 <div class="btn-edit" onclick="cambiar_parrafo()">
                     <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
@@ -42,16 +42,16 @@
        </div>
        <input type="file" id="file1" onchange="showFile(this)">
        <div class="trayectoria">
-        <div class="exp">
-            <div class="top">
+        <div class="experiencia">
+            <div class="sec-header">
                 <h2>Experiencia</h2>
                 <div class="btn-edit" onclick="">
                     <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
         </div>
-        <div class="edu">
-            <div class="top">
+        <div class="educacion">
+            <div class="sec-header">
                 <h2>Educación</h2>
                 <div class="btn-edit" onclick="">
                     <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
@@ -70,15 +70,15 @@
         </div>
        </div>
        <div class="skills">
-        <div class="top">
+        <div class="sec-header">
             <h2>Hard & Soft Skills</h2>
             <div class="btn-edit" onclick="">
                 <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
             </div>
         </div>
        </div>
-       <div class="proyects">
-        <div class="top">
+       <div class="proyectos">
+        <div class="sec-header">
             <h2>Proyectos</h2>
             <div class="btn-edit" onclick="">
                 <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
@@ -89,41 +89,6 @@
         </div>
        </div>
        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-       <script>
-        function cambiar_parrafo(){
-            document.getElementById("edit-acercade").style.display="block";
-            let texto = document.getElementById("text-acercade").innerText;
-            console.log(texto);
-        };
-        function nuevo_acercade(valor){
-            document.getElementById("text-acercade").innerText=valor;
-        };
-        function logMessage(message){
-            console.log(message+"<br>");
-        };
-        let textarea=document.getElementById("edit-acercade")
-        textarea.addEventListener('keyup', (e) => {
-            logMessage(`Key "${e.key}" released [event : keyup]`);
-            if(e.key=="Enter"){ 
-                document.getElementById("edit-acercade").style.display="none"
-            }
-        });
-
-        function showFile(input){
-            let file=input.files[0];
-            alert(`File name:${file.name}`);
-            alert(`Last modified:${file.lastModified}`);
-
-            let reader=new FileReader();
-            reader.readAsText(file);
-            reader.onload=function(){
-                console.log(reader.result);
-                document.getElementById("text-acercade").innerText=reader.result;
-            };
-            reader.onerror=function(){
-                console.log(reader.error);
-            };
-        };
-    </script>
+       <script src="functions.js"></script>
     </body>
 </html>
